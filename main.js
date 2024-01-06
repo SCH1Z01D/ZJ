@@ -1,11 +1,19 @@
 /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+// keep track of previous scroll position
+let prevScrollPos = window.scrollY;
 
-window.onscroll = function() {scrollFunction()};
+window.addEventListener('scroll', function() {
+  // current scroll position
+  const currentScrollPos = window.scrollY;
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementsByClassName("navbar").style.top = "0";
+  if (prevScrollPos > currentScrollPos) {
+    // user has scrolled up
+    document.querySelector('.sticky-navbar').classList.remove('scrolling');
   } else {
-    document.getElementsByClassName("navbar").style.top = "-50px";
+    // user has scrolled down
+    document.querySelector('.sticky-navbar').classList.add('scrolling');
   }
-}
+
+  // update previous scroll position
+  prevScrollPos = currentScrollPos;
+});

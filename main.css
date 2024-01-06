@@ -101,23 +101,7 @@ header ul li:hover{
   font-weight: 1000;
 }
 
-/* scroll stuff */
-.scroll-down {
-	header{
-		transform: translate3d(0, -100%, 0);
-	}
-}
-
-.scroll-up{
-	header {
-		filter: drop-shadow(0 -10px 20px rgb(170, 170, 170));
-	}
-}
-
-.menu-is-open {
-	overflow: hidden;
-
-	header {
-		filter: none;
-	}
+header.scrolling{
+  visibility: hidden;
+  transition: 0.3s ease-out;
 }
